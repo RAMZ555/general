@@ -1,0 +1,348 @@
+<div class="content pb-0">
+
+  <!-- Breadcrumb -->
+  <div class="d-md-flex d-block align-items-center justify-content-between page-breadcrumb mb-3">
+    <div class="my-auto mb-2">
+      <h4 class="mb-1">Dashboard</h4>
+      <nav>
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item">
+            <a [routerLink]="routes.adminDashboard">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Admin Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="d-flex my-xl-auto right-content align-items-center flex-wrap custom-date">
+      <div class="input-icon-start position-relative topdatepicker mb-2">
+        <span class="input-icon-addon">
+          <i class="ti ti-calendar"></i>
+        </span>
+        <input type="text" class="form-control date-range bookingrange" placeholder="dd/mm/yyyy - dd/mm/yyyy"
+          bsDaterangepicker [(ngModel)]="bsRangeValue" [bsConfig]="{ adaptivePosition: true }">
+      </div>
+    </div>
+  </div>
+  <!-- /Breadcrumb -->
+
+  <div class="row">
+    <div class="col-xl-8 d-flex flex-column">
+
+      <!-- Welcome Wrap -->
+      <div class="card flex-fill">
+        <div class="card-body">
+          <div class="row align-items-center row-gap-3">
+            <div class="col-sm-7">
+              <h4 class="mb-1">Welcome, Admin </h4>
+              <p>400+ Budget Friendly Cars Available for the rents </p>
+              <div class="d-flex align-items-center flex-wrap gap-4 mb-3">
+                <div>
+                  <p class="mb-1">Total No of Cars</p>
+                  <h3>2</h3>
+                </div>
+                <div>
+                  <p class="d-flex align-items-center mb-2"><span class="line-icon bg-violet me-2"></span><span
+                      class="fw-semibold text-gray-9 me-1">1</span>In Rental</p>
+                  <p class="d-flex align-items-center"><span class="line-icon bg-orange me-2"></span><span
+                      class="fw-semibold text-gray-9 me-1">1</span> Upcoming</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-3 flex-wrap">
+                <a [routerLink]="routes.reservation" class="btn btn-primary d-flex align-items-center"><i
+                    class="ti ti-eye me-1"></i>Reservations</a>
+                <a [routerLink]="routes.addCar" class="btn btn-dark d-flex align-items-center"><i
+                    class="ti ti-plus me-1"></i>Add New Car</a>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <img src="assets/admin/assets/img/icons/car.svg" alt="img">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Welcome Wrap -->
+
+      <div class="row">
+
+        <!-- Total Reservations -->
+        <div class="col-md-4 d-flex">
+          <div class="card flex-fill">
+            <div class="card-body pb-1">
+              <div class="border-bottom mb-0 pb-2">
+                <div class="d-flex align-items-center">
+                  <span class="avatar avatar-sm bg-secondary-100 text-secondary me-2">
+                    <i class="ti ti-calendar-time fs-14"></i>
+                  </span>
+                  <p>Total Reservations</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between gap-2">
+                <div class="py-2">
+                  <h5 class="mb-1">3</h5>
+                  <p><span class="text-success fw-semibold">+45%</span> Last Week</p>
+                </div>
+                <div>
+                  <apx-chart [series]="Areachart.series" [chart]="Areachart.chart" [colors]="Areachart.colors"
+                    [fill]="Areachart.fill" [xaxis]="Areachart.xaxis" [stroke]="Areachart.stroke"
+                    [tooltip]="Areachart.tooltip" [dataLabels]="Areachart.dataLabels"></apx-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Total Reservations -->
+
+        <!-- Total Earnings -->
+        <div class="col-md-4 d-flex">
+          <div class="card flex-fill">
+            <div class="card-body pb-1">
+              <div class="border-bottom mb-0 pb-2">
+                <div class="d-flex align-items-center">
+                  <span class="avatar avatar-sm bg-orange-100 text-orange me-2">
+                    <i class="ti ti-moneybag fs-14"></i>
+                  </span>
+                  <p>Total Earnings</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between gap-2">
+                <div class="py-2">
+                  <h5 class="mb-1">$300</h5>
+                  <p><span class="text-success fw-semibold">+22%</span> Last Week</p>
+                </div>
+                <div>
+                  <apx-chart [series]="Areachart2.series" [chart]="Areachart2.chart" [colors]="Areachart2.colors"
+                    [fill]="Areachart2.fill" [xaxis]="Areachart2.xaxis" [stroke]="Areachart2.stroke"
+                    [tooltip]="Areachart2.tooltip" [dataLabels]="Areachart2.dataLabels"></apx-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Total Earnings -->
+
+        <!-- Total Cars -->
+        <div class="col-md-4 d-flex">
+          <div class="card flex-fill">
+            <div class="card-body pb-1">
+              <div class="border-bottom mb-0 pb-2">
+                <div class="d-flex align-items-center">
+                  <span class="avatar avatar-sm bg-violet-100 text-violet me-2">
+                    <i class="ti ti-car fs-14"></i>
+                  </span>
+                  <p>Total Cars</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between gap-2">
+                <div class="py-2">
+                  <h5 class="mb-1">2</h5>
+                  <p><span class="text-danger fw-semibold">-42%</span> Last Week</p>
+                </div>
+                <div>
+                  <apx-chart [series]="Areachart3.series" [chart]="Areachart3.chart" [colors]="Areachart3.colors"
+                    [fill]="Areachart3.fill" [xaxis]="Areachart3.xaxis" [stroke]="Areachart3.stroke"
+                    [tooltip]="Areachart3.tooltip" [dataLabels]="Areachart3.dataLabels"></apx-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Total Cars -->
+
+      </div>
+    </div>
+
+    <!-- Recent Reservations -->
+    <div class="col-xl-4 d-flex">
+      <div class="card flex-fill">
+        <div class="card-body pb-1">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-1">
+            <h5>Recent Reservations</h5>
+            <a [routerLink]="routes.reservation" class="text-decoration-underline fw-medium">View All</a>
+          </div>
+          <div class="table-responsive">
+            <table class="table custom-table1">
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <a [routerLink]="routes.carDetails" class="avatar flex-shrink-0">
+                      <img src="assets/admin/assets/img/car/car-01.jpg" alt="img">
+                    </a>
+                    <div class="flex-grow-1 ms-2">
+                      <p class="d-flex align-items-center fs-13 text-default mb-1">3 Days<i
+                          class="ti ti-circle-filled text-primary fs-5 mx-1"></i>Self</p>
+                      <h6 class="fs-14 fw-semibold mb-1"><a [routerLink]="routes.carDetails">Ford Endeavour</a></h6>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <h6 class="fs-14 fw-semibold">$280 <span class="fw-normal text-default">/day</span></h6>
+                    <a href="javascript:void(0);" class="avatar avatar-sm">
+                      <img src="assets/admin/assets/img/profiles/avatar-05.jpg" alt="img" class="rounded-circle">
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <a [routerLink]="routes.carDetails" class="avatar flex-shrink-0">
+                      <img src="assets/admin/assets/img/car/car-02.jpg" alt="img">
+                    </a>
+                    <div class="flex-grow-1 ms-2">
+                      <p class="d-flex align-items-center fs-13 text-default mb-1">4 Days<i
+                          class="ti ti-circle-filled text-primary fs-5 mx-1"></i>Self</p>
+                      <h6 class="fs-14 fw-semibold mb-1"><a [routerLink]="routes.carDetails">Ferrari 458 MM</a></h6>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <h6 class="fs-14 fw-semibold">$225 <span class="fw-normal text-default">/day</span></h6>
+                    <a href="javascript:void(0);" class="avatar avatar-sm">
+                      <img src="assets/admin/assets/img/profiles/avatar-22.jpg" alt="img" class="rounded-circle">
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <a [routerLink]="routes.carDetails" class="avatar flex-shrink-0">
+                      <img src="assets/admin/assets/img/car/car-03.jpg" alt="img">
+                    </a>
+                    <div class="flex-grow-1 ms-2">
+                      <p class="d-flex align-items-center fs-13 text-default mb-1">5 Days<i
+                          class="ti ti-circle-filled text-primary fs-5 mx-1"></i>Self</p>
+                      <h6 class="fs-14 fw-semibold mb-1"><a [routerLink]="routes.carDetails">Ford Mustang </a></h6>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <h6 class="fs-14 fw-semibold">$259 <span class="fw-normal text-default">/day</span></h6>
+                    <a href="javascript:void(0);" class="avatar avatar-sm">
+                      <img src="assets/admin/assets/img/profiles/avatar-23.jpg" alt="img" class="rounded-circle">
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <a [routerLink]="routes.carDetails" class="avatar flex-shrink-0">
+                      <img src="assets/admin/assets/img/car/car-04.jpg" alt="img">
+                    </a>
+                    <div class="flex-grow-1 ms-2">
+                      <p class="d-flex align-items-center fs-13 text-default mb-1">6 Days<i
+                          class="ti ti-circle-filled text-primary fs-5 mx-1"></i>Self</p>
+                      <h6 class="fs-14 fw-semibold mb-1"><a [routerLink]="routes.carDetails">Toyota Tacoma 4</a></h6>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <h6 class="fs-14 fw-semibold">$180 <span class="fw-normal text-default">/day</span></h6>
+                    <a href="javascript:void(0);" class="avatar avatar-sm">
+                      <img src="assets/admin/assets/img/profiles/avatar-23.jpg" alt="img" class="rounded-circle">
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <a [routerLink]="routes.carDetails" class="avatar flex-shrink-0">
+                      <img src="assets/admin/assets/img/car/car-05.jpg" alt="img">
+                    </a>
+                    <div class="flex-grow-1 ms-2">
+                      <p class="d-flex align-items-center fs-13 text-default mb-1">1 Week<i
+                          class="ti ti-circle-filled text-primary fs-5 mx-1"></i>Self</p>
+                      <h6 class="fs-14 fw-semibold mb-1"><a [routerLink]="routes.carDetails">Chevrolet Truck</a></h6>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <h6 class="fs-14 fw-semibold">$300 <span class="fw-normal text-default">/day</span></h6>
+                    <a href="javascript:void(0);" class="avatar avatar-sm">
+                      <img src="assets/admin/assets/img/profiles/avatar-06.jpg" alt="img" class="rounded-circle">
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- /Recent Reservations -->
+
+  </div>
+
+
+
+  <div class="row">
+
+
+
+    <!-- Income & Expenses -->
+    <div class="col-xl-12 d-flex">
+      <div class="card flex-fill">
+        <div class="card-body pb-0">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-1 mb-3">
+            <h5 class="mb-1">Income & Expenses</h5>
+            <div class="chart-icon d-flex align-items-center gap-4 mb-1">
+              <p class="mb-0 d-flex align-items-center"><span class="chart-color bg-primary me-1"></span>Income</p>
+              <p class=" d-flex align-items-center mb-0"><span class="chart-color bg-primary-300 me-1"></span>Expense
+              </p>
+            </div>
+            <div class="dropdown mb-1">
+              <a href="javascript:void(0);" class="dropdown-toggle btn btn-white d-inline-flex align-items-center"
+                data-bs-toggle="dropdown">
+                <i class="ti ti-calendar me-1"></i>This Week
+              </a>
+              <ul class="dropdown-menu  dropdown-menu-end p-2">
+                <li>
+                  <a href="javascript:void(0);" class="dropdown-item rounded-1">This Week</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="dropdown-item rounded-1">Last Week</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="dropdown-item rounded-1">This Month</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="d-flex align-items-center flex-wrap gap-4">
+            <div class="border br-5 p-2">
+              <p class="mb-1">Income This Week</p>
+              <h5>$96896<span class="fs-13 fw-semibold text-success ms-2">+34%</span></h5>
+            </div>
+            <div class="border br-5 p-2">
+              <p class="mb-1">Expenses This Week</p>
+              <h5>$12489<span class="fs-13 fw-semibold text-danger ms-2">+34%</span></h5>
+            </div>
+          </div>
+          <div id="sales-statistics">
+            <apx-chart [series]="salesStatistics.series" [chart]="salesStatistics.chart"
+              [colors]="salesStatistics.colors" [fill]="salesStatistics.fill" [xaxis]="salesStatistics.xaxis"
+              [stroke]="salesStatistics.stroke" [tooltip]="salesStatistics.tooltip"
+              [dataLabels]="salesStatistics.dataLabels" [plotOptions]="salesStatistics.plotOptions"></apx-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Income & Expenses -->
+
+  </div>
+
+
+</div>
